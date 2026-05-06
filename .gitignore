@@ -1,0 +1,21 @@
+# Dependencies
+/node_modules/
+/wp-login-for-ai/vendor/
+package-lock.json
+/wp-login-for-ai/composer.lock
+
+# wp-env state
+/.wp-env/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Per-goal test artifacts
+/goals/*/test-artifacts/
+/goals/*/.playwright-cli/
+
+# Logs
+*.log

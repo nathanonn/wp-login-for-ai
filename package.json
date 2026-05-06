@@ -1,0 +1,16 @@
+{
+    "name": "wp-login-for-ai-workspace",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "env:start": "wp-env start",
+        "env:stop": "wp-env stop",
+        "env:cli": "wp-env run cli",
+        "test:smoke": "wp-env run cli wp plugin list",
+        "lint": "echo \"No host-side lint configured\" && exit 0",
+        "test": "echo \"No host-side tests configured\" && exit 0"
+    },
+    "devDependencies": {
+        "@wordpress/env": "^9.0.0"
+    }
+}

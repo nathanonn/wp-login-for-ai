@@ -1,0 +1,18 @@
+{
+    "name": "wp-login-for-ai/wp-login-for-ai",
+    "description": "Local development helper that lets AI agents switch WordPress users through a URL.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "WpLoginForAi\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "php -r \"echo 'No PHPUnit tests configured yet.' . PHP_EOL;\"",
+        "lint": "php -l wp-login-for-ai.php"
+    }
+}
