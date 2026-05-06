@@ -12,7 +12,11 @@
         }
     },
     "scripts": {
-        "test": "php -r \"echo 'No PHPUnit tests configured yet.' . PHP_EOL;\"",
-        "lint": "php -l wp-login-for-ai.php"
+        "test": "php tests/run.php",
+        "lint": [
+            "php -l wp-login-for-ai.php",
+            "php -l src/Plugin.php",
+            "php -l tests/run.php"
+        ]
     }
 }

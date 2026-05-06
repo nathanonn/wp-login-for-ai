@@ -21,6 +21,11 @@ if ( file_exists( $autoload ) ) {
     require_once $autoload;
 }
 
+$plugin_class = WP_LOGIN_FOR_AI_PATH . 'src/Plugin.php';
+if ( ! class_exists( 'WpLoginForAi\\Plugin' ) && file_exists( $plugin_class ) ) {
+    require_once $plugin_class;
+}
+
 register_activation_hook(
     __FILE__,
     function () {
