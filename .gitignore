@@ -7,6 +7,9 @@ package-lock.json
 # wp-env state
 /.wp-env/
 
+# Distribution builds
+/dist/
+
 # OS / editor
 .DS_Store
 Thumbs.db

@@ -1,0 +1,54 @@
+name: Package Plugin
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Optional existing release tag to upload the ZIP to.
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Build distribution ZIP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package plugin
+        run: bash scripts/package-plugin.sh
+
+      - name: Verify ZIP
+        run: |
+          unzip -t dist/wp-login-for-ai.zip
+          unzip -l dist/wp-login-for-ai.zip
+
+      - name: Resolve release tag
+        id: release
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            tag="${{ github.event.release.tag_name }}"
+          else
+            tag="${{ inputs.release_tag }}"
+          fi
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Upload ZIP to GitHub Release
+        if: steps.release.outputs.tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ steps.release.outputs.tag }}" dist/wp-login-for-ai.zip --clobber
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wp-login-for-ai
+          path: dist/wp-login-for-ai.zip

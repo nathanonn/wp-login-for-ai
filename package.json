@@ -7,6 +7,7 @@
         "env:stop": "wp-env stop",
         "env:cli": "wp-env run cli",
         "test:smoke": "wp-env run cli wp plugin list",
+        "package": "bash scripts/package-plugin.sh",
         "lint": "echo \"No host-side lint configured\" && exit 0",
         "test": "echo \"No host-side tests configured\" && exit 0"
     },
