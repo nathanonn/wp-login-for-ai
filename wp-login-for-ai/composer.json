@@ -16,7 +16,9 @@
         "lint": [
             "php -l wp-login-for-ai.php",
             "php -l src/Plugin.php",
-            "php -l tests/run.php"
+            "php -l tests/run.php",
+            "php -l tests/eval-artifacts/p-001-environment-gate.php",
+            "php -l tests/eval-artifacts/p-002-invalid-user.php"
         ]
     }
 }

@@ -112,6 +112,9 @@ $assert( $email_result['user'] instanceof WP_User && 2 === $email_result['user']
 $unknown_result = $plugin->process_request( 'definitely-not-a-user', 'localhost:8888', 'local' );
 $assert( empty( $unknown_result['ok'] ) && 'unknown_user' === $unknown_result['code'], 'unknown user should fail safely' );
 
+$unknown_email_result = $plugin->process_request( 'missing@example.com', 'localhost:8888', 'local' );
+$assert( empty( $unknown_email_result['ok'] ) && 'unknown_user' === $unknown_email_result['code'], 'unknown email should fail safely' );
+
 $empty_result = $plugin->process_request( '   ', 'localhost:8888', 'local' );
 $assert( empty( $empty_result['ok'] ) && 'invalid_identifier' === $empty_result['code'], 'empty identifier should fail safely' );
 
