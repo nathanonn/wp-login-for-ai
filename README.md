@@ -140,3 +140,9 @@ npm run package
 The ZIP is written to `dist/wp-login-for-ai.zip`. It contains the installable `wp-login-for-ai/` plugin folder and excludes development-only files such as `vendor/`, `tests/`, and Composer metadata.
 
 Publishing a GitHub Release runs the package workflow and uploads `wp-login-for-ai.zip` to the release assets. The workflow can also be run manually with an existing release tag.
+
+## How This Was Built
+
+This plugin was built in 28 minutes with zero supervision using Codex's `/goal` command. A spec went in, a working plugin with tests and Playwright screenshots came out.
+
+The full workflow — from spec to scaffold to autonomous build — is documented here: [How to Use Codex /goal to Build WordPress Plugins](https://www.nathanonn.com/codex-goal-command-wordpress-plugin/).
